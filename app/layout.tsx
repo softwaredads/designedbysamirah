@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,14 +14,20 @@ const inter = Inter({
   weight: ["300", "400"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#000000",
+};
+
 export const metadata: Metadata = {
   title: "Designed by Samirah",
   description:
-    "Luxury interior design studio — site arriving shortly.",
+    "Every space tells a story. Oscar-winning production design, translated into the art of living.",
   openGraph: {
     title: "Designed by Samirah",
-    description:
-      "Luxury interior design studio — site arriving shortly.",
+    description: "Every space tells a story.",
     type: "website",
   },
 };
@@ -32,15 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+<html
       lang="en"
       className={`${cormorant.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body
-        className="min-h-full flex flex-col"
-        suppressHydrationWarning
-      >
+      <body className="h-full overflow-hidden bg-black" suppressHydrationWarning>
         {children}
       </body>
     </html>
