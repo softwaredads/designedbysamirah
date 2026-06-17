@@ -201,7 +201,7 @@ export default function TheSetExperience() {
               Enter
             </button>
             <p className="font-sans text-[10px] uppercase tracking-[0.28em] text-white/30">
-              Tap anywhere to begin · With sound
+            Homes designed as · private worlds 
             </p>
           </div>
         </div>
