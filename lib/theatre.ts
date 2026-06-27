@@ -1,14 +1,29 @@
-export const oscarMonologue = `I have always believed that a room is a set —
-and a set is a feeling waiting to happen.
+export const servicesHeadline = "What do you need?";
 
-Light falls. A wall breathes. A chair remembers someone.
+export const servicesHint =
+  "Tap a service below — or Enquire anytime from the header.";
 
-An Oscar for production design was never about the trophy.
-It was proof that worlds can be built from silence,
-from texture, from the courage to leave space empty.
+export const servicesScopeNote = "Full studio scope available on request";
 
-That same vision now lives in every residence,
-every atelier, every private gallery entrusted to this studio.`;
+export const servicesNote =
+  "London · International projects · By appointment only";
+
+export const serviceEnquireCta = "Enquire about this";
+
+export const contactHeadline = "Begin a commission";
 
 export const contactLine =
   "For private commissions and studio inquiries — by appointment only.";
+
+export const contactResponse =
+  "We aim to respond within two business days.";
+
+export const contactCta = "Enquire by email";
+
+export const swipeHint = "Swipe or use arrows to explore";
+
+export const MAILTO = "studio@designedbysamirah.com";
+
+export function serviceMailto(categoryTitle: string) {
+  return `mailto:${MAILTO}?subject=${encodeURIComponent(`Enquiry: ${categoryTitle}`)}`;
+}

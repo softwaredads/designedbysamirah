@@ -24,10 +24,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Designed by Samirah",
   description:
-    "Every space tells a story. Oscar-winning production design, translated into the art of living.",
+    "Bespoke private interior design — residences, renovations and styling. By appointment.",
   openGraph: {
     title: "Designed by Samirah",
-    description: "Every space tells a story.",
+    description:
+      "Bespoke private interior design — residences, renovations and styling. By appointment.",
     type: "website",
   },
 };

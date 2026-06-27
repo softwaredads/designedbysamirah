@@ -71,12 +71,12 @@ export function createTheatreAudio(): TheatreAudio {
   }
 
   function playTransitionSound(sceneIndex: number) {
-    const isOscar = sceneIndex === 5;
+    const isServices = sceneIndex === 5;
     const isContact = sceneIndex === 6;
 
-    playNote(isOscar ? 196 : 220, 0.02, 0.06, 0.38, 0, 2, "triangle");
+    playNote(isServices ? 196 : 220, 0.02, 0.06, 0.38, 0, 2, "triangle");
     playNote(
-      isContact ? 174.61 : isOscar ? 293.66 : 277.18,
+      isContact ? 174.61 : isServices ? 293.66 : 277.18,
       0.014,
       0.05,
       0.32,
