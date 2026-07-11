@@ -34,12 +34,17 @@ export type PressItem = {
 };
 
 export const aboutSamirah = {
-  name: "Samirah",
+  name: "Samirah X",
   role: "Founder & Principal Designer",
-  image:
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+  image: "/samirah.jpeg",
   imageAlt: "Samirah, founder of Designed by Samirah",
-  bio: "Samirah founded the studio on a simple belief: every room should feel intentional. She leads each private commission — from first conversation through concept, sourcing and install — for clients in London and internationally.",
+  bioParagraphs: [
+    "With a career that began in the world of luxury automobiles and high-end event production, I developed a deep understanding of premium experiences, meticulous execution, and exceptional client service.",
+    "That foundation naturally evolved into commercial interior design, where I brought brands and workplaces to life through thoughtfully designed spaces. As my portfolio grew, so did the opportunity to lead residential projects, creating bespoke interiors that balance functionality with timeless aesthetics.",
+    "Along the way, I've had the privilege of collaborating with celebrity brands, delivering design solutions that reflect their unique identity while maintaining the highest standards of quality and craftsmanship.",
+    "My ethos is that every fit-out is brought to life through the brand's journey, with that story reflected throughout the experience of the consumer.",
+    "Today, I combine expertise across luxury, commercial, and residential design to create spaces that are purposeful, refined, and memorable.",
+  ],
 };
 
 /** Hero image for the About slide — swap for a real studio portrait when ready */

@@ -364,29 +364,49 @@ export default function TheSetExperience() {
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="spotlight-soft pointer-events-none absolute inset-0" />
                 <div
-                  className={`the-set-about-panel scene-enter-content absolute inset-0 flex items-center justify-center px-5 sm:px-8 ${
+                  className={`the-set-about-panel scene-enter-content absolute inset-0 flex flex-col items-center px-5 pb-3 pt-4 sm:px-8 sm:pb-4 sm:pt-6 ${
                     coverRevealed ? "is-revealed" : ""
                   }`}
                 >
-                  <div className="the-set-about-inner text-center">
-                    <div className="relative mx-auto mb-5 h-24 w-24 overflow-hidden rounded-full border border-white/20 sm:mb-6 sm:h-28 sm:w-28">
+                  <div className="the-set-about-intro shrink-0 text-center">
+                    <div className="relative mx-auto mb-4 h-20 w-20 overflow-hidden rounded-full border border-white/20 sm:mb-5 sm:h-24 sm:w-24">
                       <Image
                         src={aboutSamirah.image}
                         alt={aboutSamirah.imageAlt}
                         fill
-                        className="object-cover object-center"
-                        sizes="112px"
+                        className="object-cover object-bottom"
+                        sizes="96px"
                       />
                     </div>
                     <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-white/50">
                       {aboutSamirah.role}
                     </p>
-                    <h1 className="mt-2 font-serif text-3xl font-light tracking-[0.04em] text-white sm:text-4xl md:text-5xl">
+                    {/* <h1 className="mt-2 font-serif text-2xl font-light tracking-[0.04em] text-white sm:text-3xl md:text-4xl">
                       {aboutSamirah.name}
-                    </h1>
-                    <p className="mx-auto mt-4 max-w-md font-serif text-base font-light leading-relaxed text-white/75 sm:mt-5 sm:text-lg">
-                      {aboutSamirah.bio}
-                    </p>
+                    </h1> */}
+                  </div>
+
+                  <div className="the-set-about-bio-wrap mt-4 w-full max-w-md sm:mt-5">
+                    <div
+                      className="the-set-about-bio-scroll"
+                      data-scrollable
+                    >
+                      {aboutSamirah.bioParagraphs.map((paragraph) => (
+                        <p
+                          key={paragraph.slice(0, 32)}
+                          className="the-set-about-bio-p"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                      <p className="the-set-about-signature">
+                        — {aboutSamirah.name}
+                      </p>
+                    </div>
+                    <div
+                      className="the-set-about-bio-fade pointer-events-none"
+                      aria-hidden
+                    />
                   </div>
                 </div>
               </div>

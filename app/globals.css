@@ -148,6 +148,7 @@
   z-index: 10;
   opacity: 0;
   transform: translateY(0.75rem);
+  min-height: 0;
   transition:
     opacity 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1.4s,
     transform 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1.4s;
@@ -158,8 +159,95 @@
   transform: translateY(0);
 }
 
-.the-set-about-inner {
+.the-set-about-intro {
+  width: 100%;
   max-width: 28rem;
+}
+
+.the-set-about-bio-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.the-set-about-bio-scroll {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.25rem;
+  padding-bottom: 1.75rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  text-align: center;
+}
+
+.the-set-about-bio-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.the-set-about-bio-p {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.the-set-about-bio-p:first-child {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.the-set-about-bio-p + .the-set-about-bio-p {
+  margin-top: 1rem;
+}
+
+.the-set-about-signature {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .the-set-about-bio-p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .the-set-about-bio-p + .the-set-about-bio-p {
+    margin-top: 1.125rem;
+  }
+
+  .the-set-about-signature {
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+.the-set-about-bio-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.75rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 100%
+  );
 }
 
 /* Swipe hint */
