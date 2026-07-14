@@ -22,8 +22,18 @@ export const contactCta = "Enquire by email";
 
 export const swipeHint = "Swipe or use arrows to explore";
 
+export const WHATSAPP_NUMBER = "447340879813";
+export const WHATSAPP_DISPLAY = "+44 7340 879813";
 export const MAILTO = "studio@designedbysamirah.com";
 
 export function serviceMailto(categoryTitle: string) {
   return `mailto:${MAILTO}?subject=${encodeURIComponent(`Enquiry: ${categoryTitle}`)}`;
+}
+
+export function whatsappLink(message = "Hello, I'd like to make an enquiry.") {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+export function serviceWhatsApp(categoryTitle: string) {
+  return whatsappLink(`Hello, I'd like to enquire about ${categoryTitle}.`);
 }

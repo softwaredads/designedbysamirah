@@ -24,6 +24,8 @@ import {
   servicesNote,
   servicesScopeNote,
   swipeHint,
+  WHATSAPP_DISPLAY,
+  whatsappLink,
 } from "@/lib/theatre";
 
 import { createTheatreAudio, type TheatreAudio } from "@/lib/theatreAudio";
@@ -281,7 +283,7 @@ export default function TheSetExperience() {
         <div className="the-set-header-actions">
           {phase === "playing" && (
             <>
-              <a href={`mailto:${MAILTO}`} className="the-set-enquire-link">
+              <a href={whatsappLink()} className="the-set-enquire-link">
                 Enquire
               </a>
               <button
@@ -429,7 +431,7 @@ export default function TheSetExperience() {
                     {featuredSpaces[projectIndex].location} ·{" "}
                     {featuredSpaces[projectIndex].client}
                   </p>
-                  <h2 className="mt-2 font-serif text-[1.75rem] font-light leading-tight tracking-[0.02em] text-white sm:mt-3 sm:text-4xl md:text-6xl">
+                  <h2 className="the-set-project-title mt-2 font-serif text-[1.75rem] font-light tracking-[0.02em] text-white sm:mt-3 sm:text-4xl md:text-6xl">
                     {featuredSpaces[projectIndex].title}
                   </h2>
                   <p className="mt-2 font-sans text-[10px] uppercase tracking-[0.28em] text-white/40">
@@ -439,7 +441,7 @@ export default function TheSetExperience() {
                   <p className="mt-1 font-sans text-[10px] tracking-[0.12em] text-white/35">
                     {featuredSpaces[projectIndex].scope}
                   </p>
-                  <p className="mt-3 font-serif text-base font-light italic leading-relaxed text-white/80 sm:mt-4 sm:text-lg md:text-xl">
+                  <p className="the-set-project-caption mt-1 mb-2 font-serif text-base font-light italic text-white/80  sm:text-lg md:text-xl">
                     &ldquo;{featuredSpaces[projectIndex].caption}&rdquo;
                   </p>
                 </div>
@@ -549,10 +551,10 @@ export default function TheSetExperience() {
             )}
 
             {isContact && (
-              <div className="relative flex h-full items-center justify-center px-5 sm:px-8">
+              <div className="the-set-contact-scene relative flex h-full items-center justify-center px-5 sm:px-8">
                 <div className="spotlight pointer-events-none absolute inset-0 opacity-30" />
                 <div
-                  className="scene-enter-content relative z-10 max-w-lg text-center"
+                  className="the-set-contact-panel scene-enter-content relative z-10 w-full max-w-lg text-center"
                   data-scrollable
                 >
                   <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-white/45">
@@ -576,6 +578,30 @@ export default function TheSetExperience() {
                   <p className="mt-6 font-sans text-[10px] uppercase tracking-[0.24em] text-white/30">
                     {MAILTO}
                   </p>
+
+                  <div className="the-set-social-links">
+                    <a
+                      href="https://www.instagram.com/designedbysamirah?igsh=c3RlNGRtdmdoN2Q2"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+                      </svg>
+                    </a>
+                    <a
+                      href={whatsappLink()}
+                      aria-label={`WhatsApp ${WHATSAPP_DISPLAY}`}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.2a8.5 8.5 0 1 1 15.6-4.7Z" />
+                        <path d="M8.3 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.7 1.3 1.8 2.4 3.2 3 .2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .3-.1 1.3-.8 1.9-.6.6-1.5.8-2.5.5-1.1-.3-2.5-.8-4.2-2.3-1.4-1.3-2.4-2.8-2.8-3.9-.4-1.1 0-2.4.4-2.9.2-.2.4-.3.5-.4Z" />
+                      </svg>
+                    </a>
+                  </div>
 
                   <div className="the-set-press-strip mt-10 sm:mt-12">
                     <p className="font-sans text-[9px] uppercase tracking-[0.28em] text-white/30">
