@@ -30,28 +30,32 @@ import {
 
 import { createTheatreAudio, type TheatreAudio } from "@/lib/theatreAudio";
 
-const TOTAL_SCENES = 1 + featuredSpaces.length + 2;
-const SERVICES_SCENE = featuredSpaces.length + 1;
+// Temporarily keep the Work section out of the experience.
+const SHOW_WORK = false;
+const visibleSpaces = SHOW_WORK ? featuredSpaces : [];
+
+const TOTAL_SCENES = 1 + visibleSpaces.length + 2;
+const SERVICES_SCENE = visibleSpaces.length + 1;
 const CONTACT_SCENE = TOTAL_SCENES - 1;
 
 const NAV_SECTIONS = [
   { key: "about", label: "About", scene: 0 },
-  { key: "work", label: "Work", scene: 1 },
+  ...(SHOW_WORK ? [{ key: "work", label: "Work", scene: 1 }] : []),
   { key: "services", label: "Services", scene: SERVICES_SCENE },
   { key: "enquire", label: "Enquire", scene: CONTACT_SCENE },
 ] as const;
 
 function getActiveNav(sceneIndex: number) {
   if (sceneIndex === 0) return "about";
-  if (sceneIndex <= featuredSpaces.length) return "work";
+  if (sceneIndex <= visibleSpaces.length) return "work";
   if (sceneIndex === SERVICES_SCENE) return "services";
   return "enquire";
 }
 
 function getSceneLabel(sceneIndex: number) {
   if (sceneIndex === 0) return "About";
-  if (sceneIndex <= featuredSpaces.length) {
-    const space = featuredSpaces[sceneIndex - 1];
+  if (sceneIndex <= visibleSpaces.length) {
+    const space = visibleSpaces[sceneIndex - 1];
     return `Work · ${space.title.split(" ")[0]}`;
   }
   if (sceneIndex === SERVICES_SCENE) return "Services";
@@ -259,7 +263,7 @@ export default function TheSetExperience() {
   };
 
   const projectIndex = sceneIndex - 1;
-  const isProject = sceneIndex >= 1 && sceneIndex <= featuredSpaces.length;
+  const isProject = sceneIndex >= 1 && sceneIndex <= visibleSpaces.length;
   const isServices = sceneIndex === SERVICES_SCENE;
   const isContact = sceneIndex === CONTACT_SCENE;
   const isAbout = sceneIndex === 0;
@@ -417,9 +421,9 @@ export default function TheSetExperience() {
             {isProject && (
               <div className="relative h-full w-full">
                 <Image
-                  key={featuredSpaces[projectIndex].id}
-                  src={featuredSpaces[projectIndex].image}
-                  alt={featuredSpaces[projectIndex].imageAlt}
+                  key={visibleSpaces[projectIndex].id}
+                  src={visibleSpaces[projectIndex].image}
+                  alt={visibleSpaces[projectIndex].imageAlt}
                   fill
                   className="scene-enter object-cover object-center"
                   sizes="100vw"
@@ -428,21 +432,21 @@ export default function TheSetExperience() {
                 <div className="spotlight-soft pointer-events-none absolute inset-0" />
                 <div className="scene-enter-content the-set-project-copy">
                   <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-white/50">
-                    {featuredSpaces[projectIndex].location} ·{" "}
-                    {featuredSpaces[projectIndex].client}
+                    {visibleSpaces[projectIndex].location} ·{" "}
+                    {visibleSpaces[projectIndex].client}
                   </p>
                   <h2 className="the-set-project-title mt-2 font-serif text-[1.75rem] font-light tracking-[0.02em] text-white sm:mt-3 sm:text-4xl md:text-6xl">
-                    {featuredSpaces[projectIndex].title}
+                    {visibleSpaces[projectIndex].title}
                   </h2>
                   <p className="mt-2 font-sans text-[10px] uppercase tracking-[0.28em] text-white/40">
-                    {featuredSpaces[projectIndex].serviceType} ·{" "}
-                    {featuredSpaces[projectIndex].year}
+                    {visibleSpaces[projectIndex].serviceType} ·{" "}
+                    {visibleSpaces[projectIndex].year}
                   </p>
                   <p className="mt-1 font-sans text-[10px] tracking-[0.12em] text-white/35">
-                    {featuredSpaces[projectIndex].scope}
+                    {visibleSpaces[projectIndex].scope}
                   </p>
                   <p className="the-set-project-caption mt-1 mb-2 font-serif text-base font-light italic text-white/80  sm:text-lg md:text-xl">
-                    &ldquo;{featuredSpaces[projectIndex].caption}&rdquo;
+                    &ldquo;{visibleSpaces[projectIndex].caption}&rdquo;
                   </p>
                 </div>
               </div>
