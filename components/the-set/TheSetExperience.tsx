@@ -375,13 +375,13 @@ export default function TheSetExperience() {
                   }`}
                 >
                   <div className="the-set-about-intro shrink-0 text-center">
-                    <div className="relative mx-auto mb-4 h-20 w-20 overflow-hidden rounded-full border border-white/20 sm:mb-5 sm:h-24 sm:w-24">
+                    <div className="relative mx-auto mb-4 h-28 w-28 overflow-hidden rounded-full border border-white/20 sm:mb-5 sm:h-32 sm:w-32">
                       <Image
                         src={aboutSamirah.image}
                         alt={aboutSamirah.imageAlt}
                         fill
                         className="object-cover object-bottom"
-                        sizes="96px"
+                        sizes="(min-width: 640px) 128px, 112px"
                       />
                     </div>
                     <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-white/50">
